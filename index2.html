@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script>
+        window.onload = function () {
+            // Variables
+            let baseDeDatos = [
+                {
+                    id: 1,
+                    nombre: 'POSTRE de limon',
+                    precio: 5000,
+                    imagen: 'https://scontent.fbog2-3.fna.fbcdn.net/v/t1.0-9/109297981_3280567208672580_8256827475622850249_n.jpg?_nc_cat=102&_nc_sid=730e14&_nc_ohc=3ik_Wi6BNwUAX-z9VXW&_nc_ht=scontent.fbog2-3.fna&oh=bde4885334fd59b370a519446a92566a&oe=5F373442'
+                },
+                {
+                    id: 2,
+                    nombre: 'MUFIN De vainilla',
+                    precio: 3000,
+                    imagen: 'https://scontent.fbog2-3.fna.fbcdn.net/v/t1.0-9/109605833_3280567272005907_2009556618331914760_n.jpg?_nc_cat=102&_nc_sid=730e14&_nc_ohc=oOzeikDNmKkAX9RvNSH&_nc_ht=scontent.fbog2-3.fna&oh=c0b346831d6779d0b362a03ca8380327&oe=5F393EE2'
+                },
+                {
+                    id: 3,
+                    nombre: 'MUFIN de cafe',
+                    precio: 3000,
+                    imagen: 'https://scontent.fbog2-1.fna.fbcdn.net/v/t1.0-9/110252198_3280567328672568_8842954498525303880_n.jpg?_nc_cat=100&_nc_sid=730e14&_nc_ohc=ZeKqffKqwPkAX_G2BbP&_nc_ht=scontent.fbog2-1.fna&oh=67755317ccd23aec51ec64cb51ff2a8d&oe=5F3773C4'
+                },
+                {
+                    id: 4,
+                    nombre: 'MUFIN de mora',
+                    precio: 3000,
+                    imagen: 'https://scontent.fbog6-1.fna.fbcdn.net/v/t1.0-9/109079427_3280567398672561_2706164360966606062_n.jpg?_nc_cat=107&_nc_sid=730e14&_nc_ohc=NZB_cLhs7zYAX_SQM73&_nc_ht=scontent.fbog6-1.fna&oh=96421a6ae4d668ac720941d5bb9763d6&oe=5F37F653'
+                },
+                {
+                    id: 5,
+                    nombre: 'MUFIN de frutos rojos',
+                    precio: 3000,
+                    imagen: 'https://scontent.fbog2-1.fna.fbcdn.net/v/t1.0-9/107997072_3280567432005891_3371077689484289369_n.jpg?_nc_cat=100&_nc_sid=730e14&_nc_ohc=WDZj1hAa5LYAX-c6c_h&_nc_ht=scontent.fbog2-1.fna&oh=33cd774eb43365ea79c9e571e52f2ea0&oe=5F37EE9B'
+                },
+                {
+                    id: 6,
+                    nombre: 'Torta de helado sabor a mora',
+                    precio: 10000,
+                    imagen: 'https://scontent.fbog2-2.fna.fbcdn.net/v/t1.0-9/108148572_3280567342005900_5540856108214778433_n.jpg?_nc_cat=103&_nc_sid=730e14&_nc_ohc=L88QVTQ0SzsAX8sb545&_nc_ht=scontent.fbog2-2.fna&oh=37fba439a402e125153cabaf13134b46&oe=5F3AF24F'
+                },
+                {
+                    id: 7,
+                    nombre: 'POSTRE oreo',
+                    precio: 4000,
+                    imagen: 'https://scontent.fbog6-1.fna.fbcdn.net/v/t1.0-9/109099861_3280567475339220_1621320967581962994_n.jpg?_nc_cat=110&_nc_sid=730e14&_nc_ohc=w1jwVnKbzHoAX-0unbh&_nc_ht=scontent.fbog6-1.fna&oh=9161ba3c7262d41aa8d6e8765b7a3264&oe=5F375A87'
+                },
+                {
+                    id: 8,
+                    nombre: 'POSTRE con bocadillo',
+                    precio: 4000,
+                    imagen: 'https://scontent.fbog2-2.fna.fbcdn.net/v/t1.0-9/115824392_3280567512005883_5243552171786115564_n.jpg?_nc_cat=104&_nc_sid=730e14&_nc_ohc=2UVqEmI6_A8AX8Ph1jp&_nc_ht=scontent.fbog2-2.fna&oh=f09fcaa6af8240248178abac6456e577&oe=5F3A0703'
+                },
+                {
+                    id: 9,
+                    nombre: 'MUFIN Chocolate con fresa',
+                    precio: 3000,
+                    imagen: 'https://scontent.fbog6-1.fna.fbcdn.net/v/t1.0-9/115482130_3280567535339214_4906050127353965186_n.jpg?_nc_cat=109&_nc_sid=730e14&_nc_ohc=2UjNQ0ETZVsAX80oG2W&_nc_ht=scontent.fbog6-1.fna&oh=272a0a2f2899b9da48db08c481be1904&oe=5F3A35FF'
+                },
+                {
+                    id: 10,
+                    nombre: 'TORTA de vainilla',
+                    precio: 10000,
+                    imagen: 'https://scontent.fbog6-1.fna.fbcdn.net/v/t1.0-9/109492876_3280567268672574_704956170648718329_n.jpg?_nc_cat=109&_nc_sid=730e14&_nc_ohc=O6Y_0i_HHB4AX_uG6QV&_nc_ht=scontent.fbog6-1.fna&oh=8f17c52cebdd6ae24d9ad701c7a66b77&oe=5F397438'
+                }
+
+            ]
+            let $items = document.querySelector('#items');
+            let carrito = [];
+            let total = 0;
+            let $carrito = document.querySelector('#carrito');
+            let $total = document.querySelector('#total');
+            let $botonVaciar = document.querySelector('#boton-vaciar');
+
+            // Funciones
+            function renderItems() {
+                for (let info of baseDeDatos) {
+                    // Estructura
+                    let miNodo = document.createElement('div');
+                    miNodo.classList.add('card', 'col-sm-4');
+                    // Body
+                    let miNodoCardBody = document.createElement('div');
+                    miNodoCardBody.classList.add('card-body');
+                    // Titulo
+                    let miNodoTitle = document.createElement('h5');
+                    miNodoTitle.classList.add('card-title');
+                    miNodoTitle.textContent = info['nombre'];
+                    // Imagen
+                    let miNodoImagen = document.createElement('img');
+                    miNodoImagen.classList.add('img-fluid');
+                    miNodoImagen.setAttribute('src', info['imagen']);
+                    // Precio
+                    let miNodoPrecio = document.createElement('p');
+                    miNodoPrecio.classList.add('card-text');
+                    miNodoPrecio.textContent = info['precio'] + '$';
+                    // Boton 
+                    let miNodoBoton = document.createElement('button');
+                    miNodoBoton.classList.add('btn', 'btn-primary');
+                    miNodoBoton.textContent = '+';
+                    miNodoBoton.setAttribute('marcador', info['id']);
+                    miNodoBoton.addEventListener('click', anyadirCarrito);
+                    // Insertamos
+                    miNodoCardBody.appendChild(miNodoImagen);
+                    miNodoCardBody.appendChild(miNodoTitle);
+                    miNodoCardBody.appendChild(miNodoPrecio);
+                    miNodoCardBody.appendChild(miNodoBoton);
+                    miNodo.appendChild(miNodoCardBody);
+                    $items.appendChild(miNodo);
+                }
+            }
+
+            function anyadirCarrito () {
+                // Anyadimos el Nodo a nuestro carrito
+                carrito.push(this.getAttribute('marcador'))
+                // Calculo el total
+                calcularTotal();
+                // Renderizamos el carrito 
+                renderizarCarrito();
+            }
+
+            function renderizarCarrito() {
+                // Vaciamos todo el html
+                $carrito.textContent = '';
+                // Quitamos los duplicados
+                let carritoSinDuplicados = [...new Set(carrito)];
+                // Generamos los Nodos a partir de carrito
+                carritoSinDuplicados.forEach(function (item, indice) {
+                    // Obtenemos el item que necesitamos de la variable base de datos
+                    let miItem = baseDeDatos.filter(function(itemBaseDatos) {
+                        return itemBaseDatos['id'] == item;
+                    });
+                    // Cuenta el número de veces que se repite el producto
+                    let numeroUnidadesItem = carrito.reduce(function (total, itemId) {
+                        return itemId === item ? total += 1 : total;
+                    }, 0);
+                    // Creamos el nodo del item del carrito
+                    let miNodo = document.createElement('li');
+                    miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+                    miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0]['nombre']} - ${miItem[0]['precio']}$`;
+                    // Boton de borrar
+                    let miBoton = document.createElement('button');
+                    miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+                    miBoton.textContent = 'X';
+                    miBoton.style.marginLeft = '1rem';
+                    miBoton.setAttribute('item', item);
+                    miBoton.addEventListener('click', borrarItemCarrito);
+                    // Mezclamos nodos
+                    miNodo.appendChild(miBoton);
+                    $carrito.appendChild(miNodo);
+                })
+            }
+
+            function borrarItemCarrito() {
+                console.log()
+                // Obtenemos el producto ID que hay en el boton pulsado
+                let id = this.getAttribute('item');
+                // Borramos todos los productos
+                carrito = carrito.filter(function (carritoId) {
+                    return carritoId !== id;
+                });
+                // volvemos a renderizar
+                renderizarCarrito();
+                // Calculamos de nuevo el precio
+                calcularTotal();
+            }
+
+            function calcularTotal() {
+                // Limpiamos precio anterior
+                total = 0;
+                // Recorremos el array del carrito
+                for (let item of carrito) {
+                    // De cada elemento obtenemos su precio
+                    let miItem = baseDeDatos.filter(function(itemBaseDatos) {
+                        return itemBaseDatos['id'] == item;
+                    });
+                    total = total + miItem[0]['precio'];
+                }
+                // Formateamos el total para que solo tenga dos decimales
+                let totalDosDecimales = total.toFixed(2);
+                // Renderizamos el precio en el HTML
+                $total.textContent = totalDosDecimales;
+            }
+
+            function vaciarCarrito() {
+                // Limpiamos los productos guardados
+                carrito = [];
+                // Renderizamos los cambios
+                renderizarCarrito();
+                calcularTotal();
+            }
+
+            // Eventos
+            $botonVaciar.addEventListener('click', vaciarCarrito);
+
+            // Inicio
+            renderItems();
+        } 
+    </script>
+</head>
+<body background="/images/fondoo.png">
+
+    <div class="container">
+        <div class="row">
+            <!-- Elementos generados a partir del JSON -->
+            <main id="items" class="col-sm-8 row"></main>
+            <!-- Carrito -->
+            <aside class="col-sm-4">
+                <h2>Carrito Dulce sabor</h2>
+                <!-- Elementos del carrito -->
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <!-- Precio total -->
+                <p class="text-right">Total: <span id="total"></span>$Pesos Co</p>
+                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>
